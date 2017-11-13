@@ -1,0 +1,10 @@
+{
+  "name": "ridibooks/crm",
+  "description": "Ridibooks CRM PHP Library",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Ridibooks\\Bi\\": "src/Ridibooks/Bi/"
+    }
+  }
+}

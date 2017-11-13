@@ -1,0 +1,5 @@
+.idea
+.DS_Store
+.svn
+/vendor
+config.local.php
