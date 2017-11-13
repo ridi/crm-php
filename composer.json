@@ -1,11 +1,8 @@
 {
   "name": "ridibooks/crm",
-  "description": "RidiBooks CRM PHP Library",
+  "description": "Ridibooks CRM PHP Library",
   "type": "library",
   "autoload": {
-    "files": [
-      "bootstrap.php"
-    ],
     "psr-4": {
       "Ridibooks\\Bi\\": "src/Ridibooks/Bi/"
     }
