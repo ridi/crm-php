@@ -1,5 +1,5 @@
 {
-  "name": "crm/crm-php",
+  "name": "ridibooks/crm",
   "description": "RidiBooks CRM PHP Library",
   "type": "library",
   "require": {
