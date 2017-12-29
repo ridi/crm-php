@@ -4,7 +4,11 @@
   "type": "library",
   "autoload": {
     "psr-4": {
-      "Ridibooks\\Bi\\": "src/Ridibooks/Bi/"
+      "Ridibooks\\": "src/Ridibooks/"
     }
+  },
+  "require": {
+    "php": "^7.0",
+    "guzzlehttp/guzzle": "^6.0"
   }
 }
