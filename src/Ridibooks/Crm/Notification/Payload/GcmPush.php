@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Ridibooks\Crm\Notification\Payload;
 
-use Ridibooks\Crm\Notification\PushId;
+use Ridibooks\Crm\Notification\Identifier;
 
 class GcmPush implements \JsonSerializable
 {
@@ -11,7 +11,7 @@ class GcmPush implements \JsonSerializable
     private $title;
     private $message;
     private $url;
-    private $push_id;
+    private $identifier;
     private $image_url;
     private $force_silent;
 
@@ -23,7 +23,7 @@ class GcmPush implements \JsonSerializable
      * @param string $message 푸시 알림 본문
      * @param string $url 알림을 눌렀을 때 이동할 주소
      * @param string|null $image_url 알림에 포함할 이미지 주소
-     * @param PushId|null $push_id 푸시 ID
+     * @param Identifier|null $identifier 알림 고유 ID
      * @param bool $force_silent 강제 무음 설정 여부 (기본적으로 오후 10시 ~ 오전 8시 사이에 발송되는 푸시 알림은 무음으로 설정됩니다)
      */
     public function __construct(
@@ -32,7 +32,7 @@ class GcmPush implements \JsonSerializable
         string $message,
         string $url,
         string $image_url = null,
-        PushId $push_id = null,
+        Identifier $identifier = null,
         bool $force_silent = false
     ) {
         $this->u_id = $u_id;
@@ -40,7 +40,7 @@ class GcmPush implements \JsonSerializable
         $this->message = $message;
         $this->url = $url;
         $this->image_url = $image_url;
-        $this->push_id = $push_id;
+        $this->identifier = $identifier;
         $this->force_silent = $force_silent;
     }
 
@@ -57,8 +57,8 @@ class GcmPush implements \JsonSerializable
         if ($this->image_url !== null) {
             $json['image_url'] = $this->image_url;
         }
-        if ($this->push_id !== null) {
-            $json['push_id'] = (string) $this->push_id;
+        if ($this->identifier !== null) {
+            $json['push_id'] = (string) $this->identifier;
         }
 
         return $json;

@@ -5,17 +5,17 @@ Version 0.2.0 (2017-12-29)
 
   ```php
   use Ridibooks\Crm\Client;
+  use Ridibooks\Crm\Notification\Identifier;
   use Ridibooks\Crm\Notification\MessageType;
   use Ridibooks\Crm\Notification\Payload\ApnsPush;
-  use Ridibooks\Crm\Notification\PushId;
   use Ridibooks\Crm\Notification\Tag;
 
-  $push_id = new PushId(MessageType::CMS, '5735', Tag::CMS);
+  $identifier = new Identifier(MessageType::CMS, '5735', Tag::CMS);
   $payload = new ApnsPush(
       'limeburst',
       '지금 PAPER PRO 사전 예약하고 특별 혜택 받으세요!',
       'https://paper.ridibooks.com/Reservation',
-      $push_id
+      $idenrifier
   );
 
   $client = new Client();

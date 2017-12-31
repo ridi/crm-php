@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Ridibooks\Crm\Notification;
 
-class PushId
+class Identifier
 {
     /**
      * @var string {@see MessageType}
@@ -34,7 +34,7 @@ class PushId
 
     /**
      * @param string $serialized {$see MessageType}:message_id:{$see Tag} 형태로 인코딩된 푸시 ID
-     * @return PushId
+     * @return Identifier
      */
     public static function createFromString(string $serialized)
     {
