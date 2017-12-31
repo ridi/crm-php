@@ -8,17 +8,17 @@ class Identifier
     /**
      * @var string {@see MessageType}
      */
-    private $message_type;
+    public $message_type;
 
     /**
      * @var string
      */
-    private $message_id;
+    public $message_id;
 
     /**
      * @var string {@see Tag}
      */
-    private $tag;
+    public $tag;
 
     /**
      * @param string $message_type {@see MessageType}
