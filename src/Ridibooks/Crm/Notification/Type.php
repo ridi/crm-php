@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Ridibooks\Crm\Notification;
 
-class NotificationType
+class Type
 {
     // tb_notification_type 에서 관리하는 알림/DM type
     const FANTASY_DAILY_BEST = 2;
