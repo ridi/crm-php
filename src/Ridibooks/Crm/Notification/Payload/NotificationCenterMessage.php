@@ -31,7 +31,7 @@ class NotificationCenterMessage implements \JsonSerializable
      * @param string $image_url 메시지에 포함될 이미지 주소
      * @param string $image_type 이미지 유형 ({@see ImageType})
      * @param string $landing_url 메시지를 눌렀을 때 이동할 주소
-     * @param int $expire_at 메시지가 만료될 유닉스 시간
+     * @param int $expire_at 메시지가 만료될 유닉스 시간 * 1000 (밀리초)
      */
     public function __construct(
         array $u_ids,
