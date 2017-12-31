@@ -3,12 +3,12 @@ declare(strict_types=1);
 
 namespace Ridibooks\Crm\Notification\Payload;
 
+use Ridibooks\Crm\Notification\Identifier;
+
 class NotificationCenterMessage implements \JsonSerializable
 {
     private $u_ids;
-    private $type;
-    private $id;
-    private $tag;
+    private $identifier;
     private $message;
     private $image_url;
     private $image_type;
@@ -24,9 +24,7 @@ class NotificationCenterMessage implements \JsonSerializable
      * ex) [$type: coupon, $id: 쿠폰번호]
      *
      * @param string[] $u_ids 수신자 로그인 아이디 목록
-     * @param string $type 메시지 타입 ({@see MessageType})
-     * @param string $id 타입 고유 식별자 (e.g., {@see MessageType}이 coupon인 경우 쿠폰 ID)
-     * @param string $tag 메시지 태그 ({@see Tag})
+     * @param Identifier $identifier 메시지 고유 ID
      * @param string $message 메시지 본문
      * @param string $image_url 메시지에 포함될 이미지 주소
      * @param string $image_type 이미지 유형 ({@see ImageType})
@@ -35,9 +33,7 @@ class NotificationCenterMessage implements \JsonSerializable
      */
     public function __construct(
         array $u_ids,
-        string $type,
-        string $id,
-        string $tag,
+        Identifier $identifier,
         string $message,
         string $image_url,
         string $image_type,
@@ -45,9 +41,7 @@ class NotificationCenterMessage implements \JsonSerializable
         int $expire_at
     ) {
         $this->u_ids = $u_ids;
-        $this->type = $type;
-        $this->id = $id;
-        $this->tag = $tag;
+        $this->identifier = $identifier;
         $this->message = $message;
         $this->image_url = $image_url;
         $this->image_type = $image_type;
@@ -59,9 +53,9 @@ class NotificationCenterMessage implements \JsonSerializable
     {
         return [
             'u_ids' => $this->u_ids,
-            'type' => $this->type,
-            'id' => $this->id,
-            'tag' => $this->tag,
+            'type' => $this->identifier->message_type,
+            'id' => $this->identifier->message_id,
+            'tag' => $this->identifier->tag,
             'message' => $this->message,
             'image_url' => $this->image_url,
             'image_type' => $this->image_type,
