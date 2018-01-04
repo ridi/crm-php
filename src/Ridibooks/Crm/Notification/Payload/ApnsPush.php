@@ -37,7 +37,9 @@ class ApnsPush implements \JsonSerializable
         ];
 
         if ($this->identifier !== null) {
-            $json['push_id'] = (string) $this->identifier;
+            $json['type'] = $this->identifier->message_type;
+            $json['id'] = $this->identifier->message_id;
+            $json['tag'] = $this->identifier->tag;
         }
 
         return $json;
