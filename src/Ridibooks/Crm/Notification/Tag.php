@@ -27,4 +27,10 @@ class Tag
     const PERIODIC_CASH = 'periodic_cash';
     const GIFT = 'gift';
     const RIDISTORY_MIGRATION = 'ridistory_migration';
+
+    const REVIEW_COMMENT_REGISTER = 'review_comment_register';
+	const REVIEW_INVISIBLE = 'review_invisible';
+
+    const COUPON = 'coupon';
+    const NEW_BOOK = 'new_book';
 }
