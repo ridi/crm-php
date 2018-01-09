@@ -56,7 +56,8 @@ class Email implements \JsonSerializable
         ];
 
         if ($this->recipient_variables !== null) {
-            $json['recipient_variables'] = $this->recipient_variables;
+            $json['recipient_variables'] = (object) $this->recipient_variables;
+        }
         }
         if ($this->cc !== null) {
             $json['cc'] = $this->cc;
