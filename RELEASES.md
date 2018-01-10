@@ -1,4 +1,4 @@
-Version 0.2.0 (2017-12-29)
+Version 0.2.0 (2018-01-10)
 ==========================
 
 - 알림 발송과 관련된 상수 클래스와 API 클라이언트를 제공합니다.
@@ -10,12 +10,12 @@ Version 0.2.0 (2017-12-29)
   use Ridibooks\Crm\Notification\Payload\ApnsPush;
   use Ridibooks\Crm\Notification\Tag;
 
-  $identifier = new Identifier(MessageType::CMS, '5735', Tag::CMS);
+  $identifier = new Identifier(MessageType::CMS, '5735', [Tag::CMS]);
   $payload = new ApnsPush(
       'limeburst',
       '지금 PAPER PRO 사전 예약하고 특별 혜택 받으세요!',
       'https://paper.ridibooks.com/Reservation',
-      $idenrifier
+      $identifier
   );
 
   $client = new Client();
