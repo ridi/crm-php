@@ -3,13 +3,15 @@ declare(strict_types=1);
 
 namespace Ridibooks\Crm\Notification\Payload;
 
+use Ridibooks\Crm\Notification\Identifier;
+
 class Email implements \JsonSerializable
 {
     private $from;
     private $to;
     private $subject;
     private $html;
-    private $campaign_id;
+    private $identifier;
     private $recipient_variables;
     private $cc;
     private $bcc;
@@ -26,7 +28,7 @@ class Email implements \JsonSerializable
      * @param array|null $recipient_variables
      *  수신자별로 지정된 템플릿 변수. 수신자들에게 수신자 목록을 숨겨야 한다면 반드시 설정되어야 합니다.
      *  [Mailgun 문서](https://documentation.mailgun.com/en/latest/user_manual.html#batch-sending)를 참고하세요.
-     * @param string $campaign_id 캠페인 ID
+     * @param Identifier $identifier 알림 고유 ID
      * @param array|null $cc 참조
      * @param array|null $bcc 숨은 참조
      */
@@ -35,8 +37,8 @@ class Email implements \JsonSerializable
         array $to,
         string $subject,
         string $html,
+        Identifier $identifier = null,
         array $recipient_variables = null,
-        string $campaign_id = null,
         array $cc = null,
         array $bcc = null
     ) {
@@ -44,8 +46,8 @@ class Email implements \JsonSerializable
         $this->to = $to;
         $this->subject = $subject;
         $this->html = $html;
+        $this->identifier = $identifier;
         $this->recipient_variables = $recipient_variables;
-        $this->campaign_id = $campaign_id;
         $this->cc = $cc;
         $this->bcc = $bcc;
     }
@@ -59,11 +61,11 @@ class Email implements \JsonSerializable
             'html' => $this->html,
         ];
 
+        if ($this->identifier !== null) {
+            $json['identifier'] = $this->identifier;
+        }
         if ($this->recipient_variables !== null) {
             $json['recipient_variables'] = (object) $this->recipient_variables;
-        }
-        if ($this->campaign_id !== null) {
-            $json['campaign_id'] = $this->campaign_id;
         }
         if ($this->cc !== null) {
             $json['cc'] = $this->cc;

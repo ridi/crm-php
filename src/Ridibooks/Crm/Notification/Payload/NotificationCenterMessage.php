@@ -53,9 +53,7 @@ class NotificationCenterMessage implements \JsonSerializable
     {
         return [
             'u_ids' => $this->u_ids,
-            'type' => $this->identifier->message_type,
-            'id' => $this->identifier->message_id,
-            'tag' => $this->identifier->tag,
+            'identifier' => $this->identifier,
             'message' => $this->message,
             'image_url' => $this->image_url,
             'image_type' => $this->image_type,

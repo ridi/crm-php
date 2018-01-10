@@ -58,9 +58,7 @@ class GcmPush implements \JsonSerializable
             $json['image_url'] = $this->image_url;
         }
         if ($this->identifier !== null) {
-            $json['type'] = $this->identifier->message_type;
-            $json['id'] = $this->identifier->message_id;
-            $json['tag'] = $this->identifier->tag;
+            $json['identifier'] = $this->identifier;
         }
 
         return $json;
