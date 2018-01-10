@@ -33,6 +33,15 @@ class Identifier
     }
 
     /**
+     * @param string $campaign_id
+     * @return Identifier
+     */
+    public static function createFromCampaignId(string $campaign_id)
+    {
+        return new self('', $campaign_id, []);
+    }
+
+    /**
      * @param string $serialized {$see MessageType}:campaign_id:{$see Tag} 형태로 인코딩된 푸시 ID
      * @return Identifier
      */
