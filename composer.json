@@ -1,5 +1,6 @@
 {
   "name": "ridibooks/crm",
+  "version": "0.2.0",
   "description": "Ridibooks CRM PHP Library",
   "type": "library",
   "autoload": {
