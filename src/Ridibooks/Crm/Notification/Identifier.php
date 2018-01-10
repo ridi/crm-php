@@ -16,20 +16,20 @@ class Identifier
     public $campaign_id;
 
     /**
-     * @var string {@see Tag}
+     * @var string[] {@see Tag}
      */
-    public $tag;
+    public $tags;
 
     /**
      * @param string $message_type {@see MessageType}
-     * @param string $tag {@see Tag}
      * @param string $campaign_id
+     * @param string[] $tags {@see Tag}
      */
-    public function __construct(string $message_type, string $campaign_id, string $tag)
+    public function __construct(string $message_type, string $campaign_id, array $tags)
     {
         $this->message_type = $message_type;
-        $this->tag = $tag;
         $this->campaign_id = $campaign_id;
+        $this->tags = $tags;
     }
 
     /**
@@ -39,8 +39,9 @@ class Identifier
     public static function createFromString(string $serialized)
     {
         $triple = explode(":", $serialized);
+        $tags = explode(',', $triple[2]);
 
-        return new self($triple[0], $triple[1], $triple[2]);
+        return new self($triple[0], $triple[1], $tags);
     }
 
     /**
@@ -48,6 +49,8 @@ class Identifier
      */
     public function __toString(): string
     {
-        return implode(":", [$this->message_type, $this->campaign_id, $this->tag);
+        $tags = implode(',', $this->tags);
+
+        return implode(":", [$this->message_type, $this->campaign_id, $tags]);
     }
 }
