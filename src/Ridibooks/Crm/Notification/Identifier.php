@@ -13,7 +13,7 @@ class Identifier
     /**
      * @var string
      */
-    public $message_id;
+    public $campaign_id;
 
     /**
      * @var string {@see Tag}
@@ -22,18 +22,18 @@ class Identifier
 
     /**
      * @param string $message_type {@see MessageType}
-     * @param string $message_id
      * @param string $tag {@see Tag}
+     * @param string $campaign_id
      */
-    public function __construct(string $message_type, string $message_id, string $tag)
+    public function __construct(string $message_type, string $campaign_id, string $tag)
     {
         $this->message_type = $message_type;
-        $this->message_id = $message_id;
         $this->tag = $tag;
+        $this->campaign_id = $campaign_id;
     }
 
     /**
-     * @param string $serialized {$see MessageType}:message_id:{$see Tag} 형태로 인코딩된 푸시 ID
+     * @param string $serialized {$see MessageType}:campaign_id:{$see Tag} 형태로 인코딩된 푸시 ID
      * @return Identifier
      */
     public static function createFromString(string $serialized)
@@ -44,10 +44,10 @@ class Identifier
     }
 
     /**
-     * @return string {$see MessageType}:message_id:{$see Tag} 형태로 인코딩된 푸시 ID
+     * @return string {$see MessageType}:campaign_id:{$see Tag} 형태로 인코딩된 푸시 ID
      */
     public function __toString(): string
     {
-        return implode(":", [$this->message_type, $this->message_id, $this->tag]);
+        return implode(":", [$this->message_type, $this->campaign_id, $this->tag);
     }
 }
