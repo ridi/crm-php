@@ -23,13 +23,16 @@ class Client {
     private $client;
 
     /**
-     * @param string $base_uri
+     * @param array $config
+     * @see GuzzleClient
      */
-    public function __construct(string $base_uri = 'https://crm-api.ridibooks.com')
+    public function __construct(array $config = [])
     {
-        $this->client = new GuzzleClient([
-            'base_uri' => $base_uri,
-        ]);
+        if (!array_key_exists('base_uri', $config)) {
+            $config['base_uri'] = 'https://crm-api.ridibooks.com';
+        }
+
+        $this->client = new GuzzleClient($config);
     }
 
     /**
