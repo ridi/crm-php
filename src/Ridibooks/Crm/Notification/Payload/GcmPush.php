@@ -24,7 +24,7 @@ class GcmPush implements \JsonSerializable
      * @param string $url 알림을 눌렀을 때 이동할 주소
      * @param string|null $image_url 알림에 포함할 이미지 주소
      * @param Identifier|null $identifier 알림 고유 ID
-     * @param bool $force_silent 강제 무음 설정 여부 (기본적으로 오후 10시 ~ 오전 8시 사이에 발송되는 푸시 알림은 무음으로 설정됩니다)
+     * @param bool $force_silent 강제 무음 설정 여부
      */
     public function __construct(
         string $u_id,
