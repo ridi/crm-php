@@ -1,4 +1,4 @@
-Version 0.3.0 (????-??-??)
+Version 0.3.0 (2018-01-23)
 ==========================
 
 - `Ridibooks\Crm\Client`와 `GuzzleHttp\Client`의 생성자가 서로 호환됩니다.
