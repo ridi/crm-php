@@ -17,7 +17,8 @@ use Ridibooks\Crm\Notification\Payload\NotificationCenterMessage;
  * http://api.dev.ridi.io/crm/crm.html
  *
  */
-class Client {
+class Client
+{
 
     /** @var Client */
     private $client;
