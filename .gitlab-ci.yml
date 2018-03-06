@@ -1,0 +1,26 @@
+image: ridibooks/php:7.0
+
+variables:
+  COMPOSER_HOME: $CI_PROJECT_DIR/.composer
+  GIT_SUBMODULE_STRATEGY: normal
+
+cache:
+  key: composer
+  paths:
+    - .composer/cache/
+
+stages:
+  - build
+  - test
+
+composer:
+  stage: build
+  script:
+    - composer validate
+    - composer install
+
+phpcs:
+  stage: test
+  script:
+    - composer install
+    - vendor/bin/phpcs --standard=./ruleset.xml
