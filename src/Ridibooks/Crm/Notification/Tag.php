@@ -12,7 +12,7 @@ class Tag
     const DEAL_END_BOOK = 'deal_end_book';
     const LAPSED_USER_COUPON = 'lapsed_user_coupon';
     const NEW_ACCOUNT_COUPON = 'new_account_coupon';
-    const CMS ='cms';
+    const CMS = 'cms';
     const SERIES_NEW_BOOK = 'series_new_book';
     const RENT_BOOK_EXPIRE = 'rent_book_expire';
     const FLATRATE_TICKET_EXPIRE = 'flatrate_ticket_expire';
@@ -33,4 +33,15 @@ class Tag
 
     const COUPON = 'coupon';
     const NEW_BOOK = 'new_book';
+
+    const B_ID_PREFIX = 'bid-';
+
+    /**
+     * @param string $b_id
+     * @return string
+     */
+    public function createFromBid(string $b_id): string
+    {
+        return self::B_ID_PREFIX . $b_id;
+    }
 }
