@@ -40,7 +40,7 @@ class Tag
      * @param string $b_id
      * @return string
      */
-    public function createFromBid(string $b_id): string
+    public static function createFromBid(string $b_id): string
     {
         return self::B_ID_PREFIX . $b_id;
     }
