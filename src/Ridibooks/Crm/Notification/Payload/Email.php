@@ -7,13 +7,37 @@ use Ridibooks\Crm\Notification\Identifier;
 
 class Email implements \JsonSerializable
 {
+    /**
+     * @var string
+     */
     private $from;
+    /**
+     * @var array
+     */
     private $to;
+    /**
+     * @var string
+     */
     private $subject;
+    /**
+     * @var string
+     */
     private $html;
+    /**
+     * @var Identifier
+     */
     private $identifier;
+    /**
+     * @var array|null
+     */
     private $recipient_variables;
+    /**
+     * @var array|null
+     */
     private $cc;
+    /**
+     * @var array|null
+     */
     private $bcc;
 
     /**

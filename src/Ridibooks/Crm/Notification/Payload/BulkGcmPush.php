@@ -5,12 +5,12 @@ namespace Ridibooks\Crm\Notification\Payload;
 
 use Ridibooks\Crm\Notification\Identifier;
 
-class GcmPush implements \JsonSerializable
+class BulkGcmPush implements \JsonSerializable
 {
     /**
-     * @var string
+     * @var string[]
      */
-    private $u_id;
+    private $u_ids;
     /**
      * @var string
      */
@@ -24,11 +24,11 @@ class GcmPush implements \JsonSerializable
      */
     private $url;
     /**
-     * @var null|Identifier
+     * @var Identifier|null
      */
     private $identifier;
     /**
-     * @var null|string
+     * @var string|null
      */
     private $image_url;
     /**
@@ -39,7 +39,7 @@ class GcmPush implements \JsonSerializable
     /**
      * GCM 페이로드 생성자.
      *
-     * @param string $u_id 수신자의 로그인 아이디
+     * @param string[] $u_ids 수신자의 로그인 아이디 배열
      * @param string $title 알림 제목
      * @param string $message 푸시 알림 본문
      * @param string $url 알림을 눌렀을 때 이동할 주소
@@ -48,7 +48,7 @@ class GcmPush implements \JsonSerializable
      * @param bool $force_silent 강제 무음 설정 여부
      */
     public function __construct(
-        string $u_id,
+        array $u_ids,
         string $title,
         string $message,
         string $url,
@@ -56,7 +56,7 @@ class GcmPush implements \JsonSerializable
         Identifier $identifier = null,
         bool $force_silent = false
     ) {
-        $this->u_id = $u_id;
+        $this->u_ids = $u_ids;
         $this->title = $title;
         $this->message = $message;
         $this->url = $url;
@@ -68,7 +68,7 @@ class GcmPush implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [
-            'u_id' => $this->u_id,
+            'u_ids' => $this->u_ids,
             'title' => $this->title,
             'message' => $this->message,
             'url' => $this->url,

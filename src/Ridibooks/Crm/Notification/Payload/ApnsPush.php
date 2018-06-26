@@ -7,10 +7,25 @@ use Ridibooks\Crm\Notification\Identifier;
 
 class ApnsPush implements \JsonSerializable
 {
+    /**
+     * @var string
+     */
     private $u_id;
+    /**
+     * @var string
+     */
     private $message;
+    /**
+     * @var string
+     */
     private $url;
+    /**
+     * @var Identifier|null
+     */
     private $identifier;
+    /**
+     * @var bool
+     */
     private $force_silent;
 
     /**

@@ -7,12 +7,33 @@ use Ridibooks\Crm\Notification\Identifier;
 
 class NotificationCenterMessage implements \JsonSerializable
 {
+    /**
+     * @var array|string[]
+     */
     private $u_ids;
+    /**
+     * @var Identifier
+     */
     private $identifier;
+    /**
+     * @var string
+     */
     private $message;
+    /**
+     * @var string
+     */
     private $image_url;
+    /**
+     * @var string
+     */
     private $image_type;
+    /**
+     * @var string
+     */
     private $landing_url;
+    /**
+     * @var int
+     */
     private $expire_at;
 
     /**
