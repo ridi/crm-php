@@ -5,31 +5,15 @@ namespace Ridibooks\Crm\Notification\Payload;
 
 use Ridibooks\Crm\Notification\Identifier;
 
-class BulkApnsPush implements \JsonSerializable
+class BulkApnsPush extends ApnsPush
 {
     /**
      * @var string[]
      */
     private $u_ids;
-    /**
-     * @var string
-     */
-    private $message;
-    /**
-     * @var string
-     */
-    private $url;
-    /**
-     * @var Identifier|null
-     */
-    private $identifier;
-    /**
-     * @var bool
-     */
-    private $force_silent;
 
     /**
-     * APNS 페이로드 생성자.
+     * APNS Bulk 페이로드 생성자.
      *
      * @param string[] $u_ids 수신자의 로그인 아이디 배열
      * @param string $message 푸시 알림 본문
@@ -45,10 +29,7 @@ class BulkApnsPush implements \JsonSerializable
         bool $force_silent = false
     ) {
         $this->u_ids = $u_ids;
-        $this->message = $message;
-        $this->url = $url;
-        $this->identifier = $identifier;
-        $this->force_silent = $force_silent;
+        parent::__construct('', $message, $url, $identifier, $force_silent);
     }
 
     public function jsonSerialize()

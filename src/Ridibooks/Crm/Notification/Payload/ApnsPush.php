@@ -10,23 +10,23 @@ class ApnsPush implements \JsonSerializable
     /**
      * @var string
      */
-    private $u_id;
+    protected $u_id;
     /**
      * @var string
      */
-    private $message;
+    protected $message;
     /**
      * @var string
      */
-    private $url;
+    protected $url;
     /**
      * @var Identifier|null
      */
-    private $identifier;
+    protected $identifier;
     /**
      * @var bool
      */
-    private $force_silent;
+    protected $force_silent;
 
     /**
      * APNS 페이로드 생성자.

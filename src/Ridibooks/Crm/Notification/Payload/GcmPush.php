@@ -10,31 +10,31 @@ class GcmPush implements \JsonSerializable
     /**
      * @var string
      */
-    private $u_id;
+    protected $u_id;
     /**
      * @var string
      */
-    private $title;
+    protected $title;
     /**
      * @var string
      */
-    private $message;
+    protected $message;
     /**
      * @var string
      */
-    private $url;
+    protected $url;
     /**
      * @var null|Identifier
      */
-    private $identifier;
+    protected $identifier;
     /**
      * @var null|string
      */
-    private $image_url;
+    protected $image_url;
     /**
      * @var bool
      */
-    private $force_silent;
+    protected $force_silent;
 
     /**
      * GCM 페이로드 생성자.

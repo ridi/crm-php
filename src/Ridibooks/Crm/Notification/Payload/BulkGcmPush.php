@@ -5,36 +5,12 @@ namespace Ridibooks\Crm\Notification\Payload;
 
 use Ridibooks\Crm\Notification\Identifier;
 
-class BulkGcmPush implements \JsonSerializable
+class BulkGcmPush extends GcmPush
 {
     /**
      * @var string[]
      */
     private $u_ids;
-    /**
-     * @var string
-     */
-    private $title;
-    /**
-     * @var string
-     */
-    private $message;
-    /**
-     * @var string
-     */
-    private $url;
-    /**
-     * @var Identifier|null
-     */
-    private $identifier;
-    /**
-     * @var string|null
-     */
-    private $image_url;
-    /**
-     * @var bool
-     */
-    private $force_silent;
 
     /**
      * GCM 페이로드 생성자.
@@ -57,12 +33,7 @@ class BulkGcmPush implements \JsonSerializable
         bool $force_silent = false
     ) {
         $this->u_ids = $u_ids;
-        $this->title = $title;
-        $this->message = $message;
-        $this->url = $url;
-        $this->image_url = $image_url;
-        $this->identifier = $identifier;
-        $this->force_silent = $force_silent;
+        parent::__construct('', $title, $message, $url, $image_url, $identifier, $force_silent);
     }
 
     public function jsonSerialize()
