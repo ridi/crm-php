@@ -28,4 +28,5 @@ class MessageType
     const PERIODIC_CASH = 'periodic_cash';
     const GIFT = 'gift';
     const RIDISTORY_MIGRATION = 'ridistory_migration';
+    const WAIT_FREE_AVAILABLE = 'wait_free_available';
 }
