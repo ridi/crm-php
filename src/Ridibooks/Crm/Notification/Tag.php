@@ -27,6 +27,7 @@ class Tag
     const PERIODIC_CASH = 'periodic_cash';
     const GIFT = 'gift';
     const RIDISTORY_MIGRATION = 'ridistory_migration';
+    const WAIT_FREE_AVAILABLE = 'wait_free_available';
 
     const REVIEW_COMMENT_REGISTER = 'review_comment_register';
     const REVIEW_INVISIBLE = 'review_invisible';
