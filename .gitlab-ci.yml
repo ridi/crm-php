@@ -24,3 +24,24 @@ phpcs:
   script:
     - composer install
     - vendor/bin/phpcs --standard=./ruleset.xml
+
+phpunit-7.0:
+  image: ridibooks/store-php-test:7.0
+  stage: test
+  script:
+    - composer install
+    - vendor/bin/phpunit
+
+phpunit-7.1:
+  image: ridibooks/store-php-test:7.1
+  stage: test
+  script:
+    - composer install
+    - vendor/bin/phpunit
+
+phpunit-7.2:
+  image: ridibooks/store-php-test:7.2
+  stage: test
+  script:
+    - composer install
+    - vendor/bin/phpunit
