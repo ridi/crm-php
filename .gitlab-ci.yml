@@ -13,6 +13,12 @@ cache:
   stage: test
   script:
     - composer install
+    - vendor/bin/phpunit
+
+.php-unit-coverage: &php-unit-coverage
+  stage: test
+  script:
+    - composer install
     - vendor/bin/phpunit --coverage-text
 
 stages:
@@ -38,7 +44,7 @@ phpunit-7.0:
 
 phpunit-7.1:
   image: ridibooks/store-php-test:7.1
-  <<: *php-unit
+  <<: *php-unit-coverage
 
 phpunit-7.2:
   image: ridibooks/store-php-test:7.2
