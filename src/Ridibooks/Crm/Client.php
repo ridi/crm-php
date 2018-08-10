@@ -51,6 +51,7 @@ class Client
             $config['handler'] = $handler;
         }
         $config['handler']->push(self::getDefaultRetryMiddleware());
+        $config['http_errors'] = true;
 
         return new self($config);
     }
