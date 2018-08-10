@@ -9,6 +9,12 @@ cache:
   paths:
     - .composer/cache/
 
+.php-unit: &php-unit
+  stage: test
+  script:
+    - composer install
+    - vendor/bin/phpunit --coverage-text
+
 stages:
   - build
   - test
@@ -27,21 +33,13 @@ phpcs:
 
 phpunit-7.0:
   image: ridibooks/store-php-test:7.0
-  stage: test
-  script:
-    - composer install
-    - vendor/bin/phpunit
+  <<: *php-unit
+
 
 phpunit-7.1:
   image: ridibooks/store-php-test:7.1
-  stage: test
-  script:
-    - composer install
-    - vendor/bin/phpunit
+  <<: *php-unit
 
 phpunit-7.2:
   image: ridibooks/store-php-test:7.2
-  stage: test
-  script:
-    - composer install
-    - vendor/bin/phpunit
+  <<: *php-unit
