@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Ridibooks\Crm;
 
 use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Request;
@@ -64,8 +65,8 @@ class Client
     {
         return Middleware::retry(
             function (int $retries, Request $request, $response, $exception) use ($max_retry_count) {
-                $server_error = isset($response) && (floor($response->getStatusCode() / 100) === 5);
-                return $server_error || isset($exception) && $retries < $max_retry_count;
+                $server_error = $exception instanceof ServerException;
+                return $server_error && ($retries < $max_retry_count);
             },
             function () use ($retry_delay) {
                 return $retry_delay;
