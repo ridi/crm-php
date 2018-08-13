@@ -19,7 +19,7 @@ cache:
   stage: test
   script:
     - composer install
-    - vendor/bin/phpunit --coverage-text
+    - vendor/bin/phpunit --coverage-text --colors=never 
 
 stages:
   - build
