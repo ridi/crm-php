@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit colors="true"
+         stderr="true"
+         backupGlobals="false"
+>
+    <testsuites>
+        <testsuite name="Ridibooks Test Suite">
+            <directory>./tests/Ridibooks/Crm</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src/Ridibooks</directory>
+        </whitelist>
+    </filter>
+</phpunit>

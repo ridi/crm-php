@@ -8,11 +8,18 @@
       "Ridibooks\\": "src/Ridibooks/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Ridibooks\\Tests\\": "tests/Ridibooks"
+    }
+  },
   "require": {
     "php": "^7.0",
     "guzzlehttp/guzzle": "^6.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^3.2"
+    "squizlabs/php_codesniffer": "^3.2",
+    "phpunit/phpunit": "^6.5",
+    "phpunit/php-code-coverage": "5.3.2"
   }
 }
