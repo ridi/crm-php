@@ -19,5 +19,6 @@ jobs:
     - stage: test
       name: phpcs
       script: vendor/bin/phpcs --standard=./ruleset.xml
+
 after_success:
   - travis_retry vendor/bin/php-coveralls -v
