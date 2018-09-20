@@ -1,7 +1,7 @@
 {
   "name": "ridibooks/crm",
   "description": "Ridibooks CRM PHP Library",
-  "license": "proprietary",
+  "license": "MIT",
   "type": "library",
   "autoload": {
     "psr-4": {
