@@ -9,8 +9,6 @@ cache:
     - $HOME/.composer/cache
 
 install:
-  - pyrus install pear/PHP_CodeSniffer
-  - phpenv rehash
   - composer install
 
 stages:
@@ -22,4 +20,4 @@ jobs:
       name: phpunit
     - stage: test
       name: phpcs
-      script: phpcs --standard=./ruleset.xml
+      script: vendor/bin/phpcs --standard=./ruleset.xml
