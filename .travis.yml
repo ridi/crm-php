@@ -17,7 +17,5 @@ stages:
 jobs:
   include:
     - stage: test
-      name: phpunit
-    - stage: test
       name: phpcs
       script: vendor/bin/phpcs --standard=./ruleset.xml
