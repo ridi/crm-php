@@ -20,6 +20,7 @@
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.2",
     "phpunit/phpunit": "^6.5",
-    "phpunit/php-code-coverage": "5.3.2"
+    "phpunit/php-code-coverage": "5.3.2",
+    "php-coveralls/php-coveralls": "^2.1"
   }
 }
