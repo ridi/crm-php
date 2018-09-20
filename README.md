@@ -1,6 +1,7 @@
 # Ridibooks CRM API SDK
 
 [![Packagist](https://img.shields.io/packagist/v/ridibooks/crm.svg)](https://packagist.org/packages/ridibooks/crm)
+[![travis ci](https://travis-ci.org/ridi/crm-sdk.svg?branch=master)](https://travis-ci.org/ridi/crm-sdk)
 
 ## Introduction
 CRM API SDK provide client of CRM API Server used in RIDI.  
