@@ -1,0 +1,25 @@
+language: php
+php:
+  - 7.0
+  - 7.1
+  - 7.2
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+install:
+  - pyrus install pear/PHP_CodeSniffer
+  - phpenv rehash
+  - composer install
+
+stages:
+  - test
+
+jobs:
+  include:
+    - stage: test
+      name: phpunit
+    - stage: test
+      name: phpcs
+      script: phpcs --standard=./ruleset.xml
