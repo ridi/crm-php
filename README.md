@@ -1,10 +1,10 @@
-# Ridibooks CRM API SDK
+# Ridibooks CRM API PHP SDK
 
 [![Packagist](https://img.shields.io/packagist/v/ridibooks/crm.svg)](https://packagist.org/packages/ridibooks/crm)
-[![travis ci](https://travis-ci.org/ridi/crm-sdk.svg?branch=master)](https://travis-ci.org/ridi/crm-sdk)
+[![travis ci](https://travis-ci.org/ridi/crm-php.svg?branch=master)](https://travis-ci.org/ridi/crm-php)
 
 ## Introduction
-CRM API SDK provide client of CRM API Server used in RIDI.  
+CRM API PHP SDK provide client of CRM API Server used in RIDI.  
 This library uses [guzzlehttp/guzzle](https://github.com/guzzle/guzzle) as HTTP Client
 
 ## Install
