@@ -19,4 +19,6 @@ after_success:
   - travis_retry vendor/bin/php-coveralls -v
 notifications:
   slack:
+    on_success: change # default: always
+    on_failure: change # default: always
     secure: WsHET7HIP/KPmSsSrPq2fK6OlpQC9XEgiXRcfrYESfDe7sAIzlixgRGnkRYV+mFjbyzufHuaXRraO/gIDDTz+cgco9HdojPwQD1V/clKvD46hhbyhJ69gP4y04b78pJI9TVnnJnaK9cOb7JNpUumQsn90wVxHpl98Mk+if64AIHaT/sFjlGuZTQMmmqmKsGDyoNXqhy+Vj4/bWFF8V3TKajasBDt9AindKO01/uvCotu3Ri39nukxgfNGjm4b3VVFwug/d+l10RcPVMdbj9TPfgDDPfxXENc1dnwBLUxQwbiJPvs+LjUNTsd/yMMlh/OdVxsrh2t/bvnDfQuZ/zCmc+x/BLz2o3Fr4020aUPRrVYW7V7IPh76xxTRir7QsVH5zb+7rif0SQ3LBfHOz++KIHlmEJjVa0zuNMhxKSENbvLR+kvobO2BST4DtybF5Z5NZgxDkJgFjhiby1egaXwz1A1VTrxWE7GlH6bMLfrrj1jSrUgGAFclpFdZKeB3mqzcE8fzO9EcvczpcLRfHHDev/phAIzwbmS6A5oSETk1UW/xrrTMtsUWOtFGpmCbJnsVtincUKkQdI/yPYp2d6NQT480bNZY35jq1Zf3T7nX/ObHcO79YPase8/0V8QYl8r9yZuNWhPo6oEDeFk122lVi+uBQ3fW3bhJr1cOorwJw0=
