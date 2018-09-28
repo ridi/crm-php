@@ -22,7 +22,7 @@ class QueueStatusResponse extends Response
         parent::__construct($status, $headers, $body, $version, $reason);
 
         if ($this->getStatusCode() === 200) {
-            $result = json_decode($this->getBody());
+            $result = json_decode($this->getBody()->getContents(), true);
             if (json_last_error() !== JSON_ERROR_NONE) {
                 throw new \Exception('Cannot parse response of queue status API');
             }
