@@ -7,6 +7,7 @@ use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
+use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Ridibooks\Crm\Notification\Payload\ApnsPush;
@@ -45,7 +46,7 @@ class Client
      * @param array $config
      * @return Client
      */
-    public static function createWithDefaultRetry(array $config = [])
+    public static function createWithDefaultRetry(array $config = []): self
     {
         if (!array_key_exists('handler', $config)) {
             $handler = HandlerStack::create();
@@ -63,7 +64,7 @@ class Client
      * @param int $retry_delay 재시도 사이 간격(단위: ms)
      * @return callable retry 미들웨어
      */
-    public static function getDefaultRetryMiddleware(int $max_retry_count = 3, int $retry_delay = 1000)
+    public static function getDefaultRetryMiddleware(int $max_retry_count = 3, int $retry_delay = 1000): callable
     {
         return Middleware::retry(
             function (int $retries, Request $request, $response, $exception) use ($max_retry_count) {
@@ -78,9 +79,9 @@ class Client
 
     /**
      * @param NotificationCenterMessage $message
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @return PromiseInterface
      */
-    public function sendNotificationCenterMessageAsync(NotificationCenterMessage $message)
+    public function sendNotificationCenterMessageAsync(NotificationCenterMessage $message): PromiseInterface
     {
         $promise = $this->client->requestAsync('POST', '/v1/notification/center/', [
             'json' => $message,
@@ -93,7 +94,7 @@ class Client
      * @param NotificationCenterMessage $message
      * @return Response
      */
-    public function sendNotificationCenterMessage(NotificationCenterMessage $message)
+    public function sendNotificationCenterMessage(NotificationCenterMessage $message): Response
     {
         $promise = $this->sendNotificationCenterMessageAsync($message);
 
@@ -102,9 +103,9 @@ class Client
 
     /**
      * @param Email $email
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @return PromiseInterface
      */
-    public function sendEmailAsync(Email $email)
+    public function sendEmailAsync(Email $email): PromiseInterface
     {
         $promise = $this->client->requestAsync('POST', '/v1/notification/email/', [
             'json' => $email,
@@ -117,7 +118,7 @@ class Client
      * @param Email $email
      * @return Response
      */
-    public function sendEmail(Email $email)
+    public function sendEmail(Email $email): Response
     {
         $promise = $this->sendEmailAsync($email);
 
@@ -128,7 +129,7 @@ class Client
      * @param ApnsPush $push
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendApnsPushAsync(ApnsPush $push)
+    public function sendApnsPushAsync(ApnsPush $push): PromiseInterface
     {
         $promise = $this->client->requestAsync('POST', '/v1/notification/push/apns/', [
             'verify' => false,
@@ -142,7 +143,7 @@ class Client
      * @param ApnsPush $push
      * @return Response
      */
-    public function sendApnsPush(ApnsPush $push)
+    public function sendApnsPush(ApnsPush $push): Response
     {
         $promise = $this->sendApnsPushAsync($push);
 
@@ -151,9 +152,9 @@ class Client
 
     /**
      * @param GcmPush $push
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @return PromiseInterface
      */
-    public function sendGcmPushAsync(GcmPush $push)
+    public function sendGcmPushAsync(GcmPush $push): PromiseInterface
     {
         $promise = $this->client->requestAsync('POST', '/v1/notification/push/gcm/', [
             'json' => $push,
@@ -166,7 +167,7 @@ class Client
      * @param GcmPush $push
      * @return Response
      */
-    public function sendGcmPush(GcmPush $push)
+    public function sendGcmPush(GcmPush $push): Response
     {
         $promise = $this->sendGcmPushAsync($push);
 
@@ -174,9 +175,9 @@ class Client
     }
 
     /**
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @return PromiseInterface
      */
-    public function getQueueStatusAsync()
+    public function getQueueStatusAsync(): PromiseInterface
     {
         $promise = $this->client->requestAsync('GET', '/v1/status/');
 

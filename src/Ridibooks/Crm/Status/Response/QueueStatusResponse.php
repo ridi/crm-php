@@ -12,6 +12,14 @@ class QueueStatusResponse extends Response
     /** @var array */
     private $queue_sizes;
 
+    /**
+     * @param int $status
+     * @param array $headers
+     * @param null $body
+     * @param string $version
+     * @param string|null $reason
+     * @throws \Exception
+     */
     public function __construct(
         int $status = 200,
         array $headers = [],
