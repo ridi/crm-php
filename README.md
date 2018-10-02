@@ -72,6 +72,10 @@ $recipient_variables = [
 $email = new Email($from, [$to], $subject, $html, $identifier, $recipient_variables, [$cc], [$bcc]);
 $response = $client->sendEmail($email);
 echo $response->getStatusCode();
+
+$response = $client->getQueueStatus();
+echo $response->getQueueStatus();
+echo implode(',', $response->getNameOfQueues());
 ```
 
 ### CRM API SDK release steps
