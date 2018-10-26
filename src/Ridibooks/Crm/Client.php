@@ -67,9 +67,16 @@ class Client
     public static function getDefaultRetryMiddleware(int $max_retry_count = 3, int $retry_delay = 1000): callable
     {
         return Middleware::retry(
-            function (int $retries, Request $request, $response, $exception) use ($max_retry_count) {
-                $server_error = $exception instanceof ServerException;
-                return $server_error && ($retries < $max_retry_count);
+            function (
+                int $retries,
+                Request $request,
+                Response $response,
+                $reason
+            ) use ($max_retry_count): bool {
+                $is_exception_occurred = ($reason !== null) || ($response->getStatusCode() >= 500);
+                $can_retry = $retries < $max_retry_count;
+
+                return $is_exception_occurred && $can_retry;
             },
             function () use ($retry_delay) {
                 return $retry_delay;
