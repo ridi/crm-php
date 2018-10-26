@@ -69,8 +69,8 @@ class Client
         return Middleware::retry(
             function (
                 int $retries,
-                Request $request,
-                Response $response,
+                ?Request $request,
+                ?Response $response,
                 $reason
             ) use ($max_retry_count): bool {
                 $is_exception_occurred = ($reason !== null) || ($response->getStatusCode() >= 500);
