@@ -108,10 +108,10 @@ class Client
     }
 
     /**
-     * @param int $id
+     * @param string $id
      * @return Response
      */
-    public function withdrawNotificationCenterMessage(int $id): Response
+    public function withdrawNotificationCenterMessage(string $id): Response
     {
         $promise = $this->client->requestAsync('DELETE', "/v1/notification/center/$id");
 
