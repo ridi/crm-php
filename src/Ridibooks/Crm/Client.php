@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace Ridibooks\Crm;
 
 use GuzzleHttp\Client as GuzzleClient;
-use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Promise\PromiseInterface;
@@ -104,6 +103,17 @@ class Client
     public function sendNotificationCenterMessage(NotificationCenterMessage $message): Response
     {
         $promise = $this->sendNotificationCenterMessageAsync($message);
+
+        return $promise->wait();
+    }
+
+    /**
+     * @param int $id
+     * @return Response
+     */
+    public function withdrawNotificationCenterMessage(int $id): Response
+    {
+        $promise = $this->client->requestAsync('DELETE', "/v1/notification/center/$id");
 
         return $promise->wait();
     }
