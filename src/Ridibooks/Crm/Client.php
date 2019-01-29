@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace Ridibooks\Crm;
 
 use GuzzleHttp\Client as GuzzleClient;
-use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Promise\PromiseInterface;
