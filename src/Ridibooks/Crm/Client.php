@@ -113,7 +113,7 @@ class Client
      */
     public function updateNotificationCenterMessage(NotificationCenterMessage $message): Response
     {
-        $promise = $this->client.requestAsync('PUT', '/v1/notification/center/', [
+        $promise = $this->client->requestAsync('PUT', '/v1/notification/center/', [
             'json' => $message,
         ]);
 
