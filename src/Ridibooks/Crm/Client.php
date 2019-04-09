@@ -108,30 +108,6 @@ class Client
     }
 
     /**
-     * @param NotificationCenterMessage $message
-     * @return Response
-     */
-    public function updateNotificationCenterMessage(NotificationCenterMessage $message): Response
-    {
-        $promise = $this->client->requestAsync('PUT', '/v1/notification/center/', [
-            'json' => $message,
-        ]);
-
-        return $promise->wait();
-    }
-
-    /**
-     * @param string $id
-     * @return Response
-     */
-    public function withdrawNotificationCenterMessage(string $id): Response
-    {
-        $promise = $this->client->requestAsync('DELETE', "/v1/notification/center/$id");
-
-        return $promise->wait();
-    }
-
-    /**
      * @param Email $email
      * @return PromiseInterface
      */
