@@ -13,6 +13,7 @@ use Ridibooks\Crm\Notification\Payload\ApnsPush;
 use Ridibooks\Crm\Notification\Payload\Email;
 use Ridibooks\Crm\Notification\Payload\GcmPush;
 use Ridibooks\Crm\Notification\Payload\NotificationCenterMessage;
+use Ridibooks\Crm\Notification\Payload\NotificationMessage;
 use Ridibooks\Crm\Status\Response\QueueStatusResponse;
 
 /**
@@ -84,10 +85,10 @@ class Client
     }
 
     /**
-     * @param NotificationCenterMessage $message
+     * @param NotificationCenterMessage|NotificationMessage $message
      * @return PromiseInterface
      */
-    public function sendNotificationCenterMessageAsync(NotificationCenterMessage $message): PromiseInterface
+    public function sendNotificationCenterMessageAsync($message): PromiseInterface
     {
         $promise = $this->client->requestAsync('POST', '/v1/notification/center/', [
             'json' => $message,
@@ -97,10 +98,10 @@ class Client
     }
 
     /**
-     * @param NotificationCenterMessage $message
+     * @param NotificationCenterMessage|NotificationMessage $message
      * @return Response
      */
-    public function sendNotificationCenterMessage(NotificationCenterMessage $message): Response
+    public function sendNotificationCenterMessage($message): Response
     {
         $promise = $this->sendNotificationCenterMessageAsync($message);
 
