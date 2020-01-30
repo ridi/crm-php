@@ -14,7 +14,6 @@ use Ridibooks\Crm\Notification\Payload\Email;
 use Ridibooks\Crm\Notification\Payload\GcmPush;
 use Ridibooks\Crm\Notification\Payload\NotificationCenterMessage;
 use Ridibooks\Crm\Notification\Payload\NotificationMessage;
-use Ridibooks\Crm\Status\Response\QueueStatusResponse;
 
 /**
  *
@@ -179,33 +178,5 @@ class Client
         $promise = $this->sendGcmPushAsync($push);
 
         return $promise->wait();
-    }
-
-    /**
-     * @return PromiseInterface
-     */
-    public function getQueueStatusAsync(): PromiseInterface
-    {
-        $promise = $this->client->requestAsync('GET', '/v1/status/');
-
-        return $promise;
-    }
-
-    /**
-     * @return QueueStatusResponse
-     */
-    public function getQueueStatus(): QueueStatusResponse
-    {
-        $promise = $this->getQueueStatusAsync();
-        /** @var Response $response */
-        $response = $promise->wait();
-        $response = new QueueStatusResponse(
-            $response->getStatusCode(),
-            $response->getHeaders(),
-            $response->getBody(),
-            $response->getProtocolVersion(),
-            $response->getReasonPhrase()
-        );
-        return $response;
     }
 }

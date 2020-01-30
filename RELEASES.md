@@ -1,3 +1,10 @@
+Version 2.0.0 (2020-01-30)
+==========================
+- Ridibooks\Crm\Client::getQueueStatusAsync 제거
+- Ridibooks\Crm\Client::getQueueStatus 제거
+- Ridibooks\Crm\Status::QueueStatusType 제거
+- Ridibooks\Crm\Status\Response::QueueStatusResponse 제거
+
 Version 1.0.0 (2018-10-29)
 ==========================
 - PHP 7.0 지원 중단
