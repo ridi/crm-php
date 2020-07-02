@@ -1,3 +1,8 @@
+Version 2.1.0 (2020-07-02)
+==========================
+- NotificationMessage 에 deeplink_url 필드 추가
+- NotificationCenterMessage 에 deeplink_url 필드 추가
+
 Version 2.0.0 (2020-01-30)
 ==========================
 - Ridibooks\Crm\Client::getQueueStatusAsync 제거
