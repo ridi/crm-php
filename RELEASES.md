@@ -1,3 +1,8 @@
+Version 3.0.0 (2020-09-14)
+==========================
+- NotificationMessage 에 deeplink_url 필드 제거
+- NotificationCenterMessage 에 deeplink_url 필드 제거
+
 Version 2.1.0 (2020-07-02)
 ==========================
 - NotificationMessage 에 deeplink_url 필드 추가
